@@ -79,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Pos_backend_Sample.wsgi.application'
 
-DB_LIVE =os.getenv("DB_LIVE")
+DB_LIVE =os.environ.get("DB_LIVE")
 if DB_LIVE in ["False", "false"]:
     DATABASES ={
         'default': {
@@ -92,11 +92,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.getenv("DB_NAME"),
-            'USER': os.getenv("DB_USER"),
-            'PASSWORD': os.getenv("DB_PASSWORD"),
-            'HOST': os.getenv("DB_HOST"),
-            'PORT': os.getenv("DB_PORT"),
+            'NAME': os.environ.get("DB_NAME"),
+            'USER': os.environ.get("DB_USER"),
+            'PASSWORD': os.environ.get("DB_PASSWORD"),
+            'HOST': os.environ.get("DB_HOST"),
+            'PORT': os.environ.get("DB_PORT"),
             'OPTIONS': {
                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },
